@@ -9,7 +9,7 @@ build:
     requires: prefect-docker>=0.4.0
     image_name: jfrog.prod.hk.aws:8082/reng-devops/prefect-cz
     tag: latest
-    dockerfile: auto
+    dockerfile: Dockerfile
     platform: "linux/amd64"
 
 # push section allows you to manage if and how this project is uploaded to remote locations
@@ -22,7 +22,7 @@ push:
 # pull section allows you to provide instructions for cloning this project in remote locations
 pull:
 - prefect.deployments.steps.set_working_directory:
-    directory: /opt/prefect/flows
+    directory: /workspace
 
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
