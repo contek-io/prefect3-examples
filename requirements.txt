@@ -1,0 +1,4 @@
+prefect==3.3.3
+prefect-docker
+prefect-kubernetes
+prefect-ray

@@ -1,0 +1,47 @@
+# Generic metadata about this project
+name: flows
+prefect-version: 3.0.0
+
+# build section allows you to manage and build docker images
+build:
+- prefect_docker.deployments.steps.build_docker_image:
+    id: build-image
+    requires: prefect-docker>=0.4.0
+    image_name: jfrog.prod.hk.aws:8082/reng-devops/prefect-cz
+    tag: latest
+    dockerfile: auto
+    platform: "linux/amd64"
+
+# push section allows you to manage if and how this project is uploaded to remote locations
+push:
+- prefect_docker.deployments.steps.push_docker_image:
+    requires: prefect-docker>=0.4.0
+    image_name: "{{ build-image.image_name }}"
+    tag: "{{ build-image.tag }}"
+
+# pull section allows you to provide instructions for cloning this project in remote locations
+pull:
+- prefect.deployments.steps.set_working_directory:
+    directory: /opt/prefect/flows
+
+# the deployments section allows you to provide configuration for deploying flows
+deployments:
+- name: hello
+  schedule:
+  entrypoint: flows/hello.py:hello
+  work_pool:
+    name: default
+    job_variables:
+      image: '{{ build-image.image }}'
+      image_pull_policy: Always
+      namespace: research-eng-cz
+      finished_job_ttl: 604800
+      cpu: '1'
+      memory: 4Gi
+    work_queue_name:
+  version:
+  tags: []
+  concurrency_limit:
+  description:
+  parameters: {}
+  schedules: []
