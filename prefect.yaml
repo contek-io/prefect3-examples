@@ -7,7 +7,7 @@ build:
 - prefect_docker.deployments.steps.build_docker_image:
     id: build-image
     requires: prefect-docker>=0.4.0
-    image_name: harbor.szidc/reng-devops/prefect-cz
+    image_name: harbor.szidc/reng-devops/prefect-test
     tag: latest
     dockerfile: Dockerfile
     platform: "linux/amd64"
