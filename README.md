@@ -11,7 +11,7 @@ newgrp docker
 
 Login to the private registry:
 ```
-docker login jfrog.prod.hk.aws:8082
+docker login harbor.szidc
 ```
 
 ### Add CA Certificates
@@ -25,7 +25,7 @@ export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
 Configure Prefect API endpoint:
 ```
-prefect config set PREFECT_API_URL=https://researchhub-1.szidc/prefectcz/api
+prefect config set PREFECT_API_URL=https://contekray.szidc/prefect/api
 ```
 
 Deploy:
