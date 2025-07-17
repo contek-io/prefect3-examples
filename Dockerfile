@@ -1,4 +1,4 @@
-FROM jfrog.prod.hk.aws:8082/reng-devops/contekray:20250526.3
+FROM harbor.szidc/reng-devops/contekray:latest
 
 RUN pip uninstall --yes prefect
 
