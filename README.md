@@ -6,6 +6,8 @@
 
 Have docker installed (refer to official installation guide), and make sure you are in the docker group.
 ```
+sudo groupadd docker
+sudo usermod -aG docker $USER
 newgrp docker
 ```
 
