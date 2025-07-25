@@ -25,7 +25,7 @@ export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
 Configure Prefect API endpoint:
 ```
-prefect config set PREFECT_API_URL=https://contekray.szidc/prefect/api
+prefect config set PREFECT_API_URL=https://contekray.szidc/prefecthf/api
 ```
 
 Deploy:
