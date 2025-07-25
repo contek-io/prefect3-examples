@@ -34,7 +34,7 @@ deployments:
     job_variables:
       image: '{{ build-image.image }}'
       image_pull_policy: Always
-      namespace: research-eng-cz
+      namespace: research-eng-hf
       finished_job_ttl: 604800
       cpu: '1'
       memory: 4Gi
