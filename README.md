@@ -30,6 +30,8 @@ Configure Prefect API endpoint:
 prefect config set PREFECT_API_URL=https://contekray.szidc/prefecthf/api
 ```
 
+Before you deploy your flows, you should modify the image name in your `prefect.yaml` lest you overwrite others' flows or vice versa.
+
 Deploy:
 ```
 prefect deploy --all
