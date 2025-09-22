@@ -1,8 +1,9 @@
 # A Simple Example to Deploy Flows onto Prefect 3.x
 
 You will need the following info to deploy your code onto the Prefect server:
-* Docker login credentail
+* Docker login credential
 * Prefect API URL
+* Prefect login credential
 * K8s namespace
 * image name
 
@@ -28,8 +29,9 @@ docker login harbor.szidc
 
 Configure Prefect API endpoint:
 ```
-prefect config set PREFECT_API_URL=<your api endpoint>
+prefect config set PREFECT_API_URL=<Prefect API URL>
 prefect config set PREFECT_API_TLS_INSECURE_SKIP_VERIFY=True
+prefect config set PREFECT_API_AUTH_STRING=<Prefect login credential>
 ```
 
 Modify the image name and namespace in your `prefect.yaml`.

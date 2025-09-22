@@ -7,7 +7,7 @@ build:
 - prefect_docker.deployments.steps.build_docker_image:
     id: build-image
     requires: prefect-docker>=0.4.0
-    image_name: harbor.szidc/reng-devops/<your image name>
+    image_name: harbor.szidc/reng-devops/<image name>
     tag: latest
     dockerfile: Dockerfile
     platform: "linux/amd64"
@@ -34,7 +34,7 @@ deployments:
     job_variables:
       image: '{{ build-image.image }}'
       image_pull_policy: Always
-      namespace: <your namespace>
+      namespace: <K8s namespace>
       finished_job_ttl: 604800
       cpu: '1'
       memory: 4Gi

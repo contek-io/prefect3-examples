@@ -1,4 +1,4 @@
-prefect==3.3.3
+prefect==3.4.17
 prefect-docker
 prefect-kubernetes
 prefect-ray
