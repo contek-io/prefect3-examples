@@ -1,5 +1,13 @@
 # A Simple Example to Deploy Flows onto Prefect 3.x
 
+You will need the following info to deploy your code onto the Prefect server:
+* Docker login credentail
+* Prefect API URL
+* K8s namespace
+* image name
+
+If you have no idea about these, ask someone for help.
+
 ## Prerequisites
 
 ### Install Docker
@@ -16,21 +24,15 @@ Login to the private registry:
 docker login harbor.szidc
 ```
 
-### Add CA Certificates
-
-Refer to https://contek.atlassian.net/wiki/spaces/INFRA/pages/415137804. Then:
-```
-export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
-```
-
 ## Deploy Flows
 
 Configure Prefect API endpoint:
 ```
-prefect config set PREFECT_API_URL=https://contekray.szidc/prefecthf/api
+prefect config set PREFECT_API_URL=<your api endpoint>
+prefect config set PREFECT_API_TLS_INSECURE_SKIP_VERIFY=True
 ```
 
-Before you deploy your flows, you should modify the image name in your `prefect.yaml` lest you overwrite others' flows or vice versa.
+Modify the image name and namespace in your `prefect.yaml`.
 
 Deploy:
 ```
